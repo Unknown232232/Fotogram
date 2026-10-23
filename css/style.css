@@ -1,14 +1,14 @@
 /* Variables */
 :root {
-    --color-page-background: #06171e;
-    --color-surface: #09212a;
-    --color-border: #124658;
-    --color-accent: #6bc1e1;
-    --color-accent-soft: rgb(253 91 79 / 10%);
-    --color-accent-medium: rgb(253 91 79 / 20%);
-    --color-text: #ffffff;
-    --color-text-muted: #99acb3;
-    --color-backdrop: rgb(0 0 0 / 70%);
+    --color-page-background: #1a1412;
+    --color-surface: #241c18;
+    --color-border: #4a3a30;
+    --color-accent: #f4a259;
+    --color-accent-soft: rgb(244 162 89 / 10%);
+    --color-accent-medium: rgb(244 162 89 / 20%);
+    --color-text: #fff8f0;
+    --color-text-muted: #c4b2a3;
+    --color-backdrop: rgb(26 20 18 / 80%);
 
     --font-main: "Figtree", sans-serif;
 
@@ -91,9 +91,7 @@ button {
     height: 32px;
 }
 
-/* ==========================================================================
-   Main content
-   ========================================================================== */
+/* Main content */
 .page_main {
     flex: 1;
     padding: var(--section-space)
@@ -117,9 +115,7 @@ button {
     text-align: center;
 }
 
-/* ==========================================================================
-   Gallery
-   ========================================================================== */
+/* Gallery */
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -140,11 +136,13 @@ button {
     background: none;
     transition:
         border-color var(--transition-speed),
-        transform var(--transition-speed);
+        transform var(--transition-speed),
+        box-shadow var(--transition-speed);
 
     &:hover {
         border-color: var(--color-accent);
         transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgb(244 162 89 / 25%);
 
         & .gallery_image {
             transform: scale(1.1);

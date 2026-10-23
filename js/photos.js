@@ -81,4 +81,19 @@ const PHOTOS = [
         title: "Leuchtende Halloween-Kürbisse im Nebel",
         alt: "Mehrere geschnitzte und beleuchtete Halloween-Kürbisse stehen in einer nebligen Nacht auf dem Gras",
     },
+    {
+        file: "wolfgang_hasselmann-antelope-10508685_1920.jpg",
+        title: "Oryxantilope in der Savanne",
+        alt: "Eine Oryxantilope mit langen, geraden Hörnern steht in einer grünen, buschigen Landschaft und blickt in die Kamera",
+    },
+    {
+        file: "prosident004-woman-10446511_1920.jpg",
+        title: "Frau beim Picknick im Blumengarten",
+        alt: "Junge Frau mit Strohhut sitzt auf einer Decke im Garten vor lila Blüten und hält ein Buch in der Hand",
+    },
+    {
+        file: "davidclode-gecko-10468457_1920.jpg",
+        title: "Nahaufnahme eines Geckos",
+        alt: "Nahaufnahme des Kopfes eines Geckos mit strukturierter Haut und bläulichem Auge vor schwarzem Hintergrund",
+    },
 ];

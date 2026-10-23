@@ -4,80 +4,55 @@ const STEP_NEXT = 1;
 const STEP_PREVIOUS = -1;
 let currentIndex = 0;
 
-/**
- * Rendert alle Thumbnails per innerHTML in die Galerie.
- */
 function renderGallery() {
-  GALLERY.innerHTML = PHOTOS.map(getThumbnailTemplate).join("");
+    for (let i = 0; i < PHOTOS.length; i++) {
+        GALLERY.innerHTML += getThumbnailTemplate(PHOTOS[i], i);
+    }
 }
 
-/**
- * Rendert die Großansicht des aktuellen Fotos und setzt den Fokus zurück.
- */
 function renderDialog(focusAction = "") {
-  const PHOTO = PHOTOS[currentIndex];
-  DIALOG.innerHTML = getDialogTemplate(PHOTO, currentIndex, PHOTOS.length);
-  const FOCUS_TARGET = DIALOG.querySelector(`[data-action="${focusAction}"]`);
-  if (FOCUS_TARGET) {
-    FOCUS_TARGET.focus();
-  }
+    const PHOTO = PHOTOS[currentIndex];
+    DIALOG.innerHTML = getDialogTemplate(PHOTO, currentIndex, PHOTOS.length);
+    const FOCUS_TARGET = DIALOG.querySelector(`[data-action="${focusAction}"]`);
+    if (FOCUS_TARGET) {
+        FOCUS_TARGET.focus();
+    }
 }
 
-/**
- * Öffnet die Großansicht für das Foto an der übergebenen Position.
- */
 function openDialog(index) {
-  currentIndex = index;
-  renderDialog();
-  DIALOG.showModal();
+    currentIndex = index;
+    renderDialog();
+    DIALOG.showModal();
 }
 
-/**
- * Schließt die Großansicht.
- */
 function closeDialog() {
-  DIALOG.close();
+    DIALOG.close();
 }
 
-/**
- * Wechselt um die angegebene Schrittweite zum nächsten oder vorherigen Foto.
- */
 function changePhoto(step, action) {
-  currentIndex = (currentIndex + step + PHOTOS.length) % PHOTOS.length;
-  renderDialog(action);
+    currentIndex = (currentIndex + step + PHOTOS.length) % PHOTOS.length; // Das % (Modulo) gibt den Rest einer Division zurück und sorgt dafür, dass die Galerie nach dem letzten Foto wieder beim ersten beginnt und vor dem ersten beim letzten.
+    renderDialog(action);
 }
 
-/**
- * Zeigt das nächste Foto an.
- */
 function showNext() {
-  changePhoto(STEP_NEXT, "next");
+    changePhoto(STEP_NEXT, "next");
 }
 
-/**
- * Zeigt das vorherige Foto an.
- */
 function showPrevious() {
-  changePhoto(STEP_PREVIOUS, "previous");
+    changePhoto(STEP_PREVIOUS, "previous");
 }
 
-/**
- * Schließt die Großansicht, wenn auf den Hintergrund geklickt wird.
- */
 function closeOnBackdropClick(event) {
-  if (event.target === DIALOG) {
-    closeDialog();
-  }
+    if (event.target === DIALOG) {
+        closeDialog();
+    }
 }
 
-/**
- * Blättert mit den Pfeiltasten durch die Großansicht.
- */
 function handleArrowKeys(event) {
-  if (event.key === "ArrowRight") {
-    showNext();
-  }
-  if (event.key === "ArrowLeft") {
-    showPrevious();
-  }
+    if (event.key === "ArrowRight") {
+        showNext();
+    }
+    if (event.key === "ArrowLeft") {
+        showPrevious();
+    }
 }

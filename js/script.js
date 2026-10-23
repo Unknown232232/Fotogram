@@ -3,5 +3,3 @@ function init() {
     DIALOG.addEventListener("click", closeOnBackdropClick);
     DIALOG.addEventListener("keydown", handleArrowKeys);
 }
-
-init();
